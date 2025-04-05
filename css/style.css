@@ -1,0 +1,395 @@
+/* ==============================
+   style.css (proyecto “Cocina Exprés”)
+   Ajustes específicos solicitados:
+   - Texto del banner en color oscuro para que se vea sobre la madera
+   - Sección “Recetas Destacadas” SIEMPRE 4 columnas a partir de 768px
+   - Centrar el título "Recetas Destacadas"
+   =============================== */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Variables de color */
+  :root {
+    --color-primary: #ff5722;  /* Naranja */
+    --color-secondary: #795548;/* Marrón */
+    --color-light: #ffffff;
+    --color-dark: #333333;
+  }
+  
+  /* Tipografía base */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.5;
+  }
+  
+  /* Títulos */
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Enlaces */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* HEADER */
+  header {
+    background-color: var(--color-primary);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .logo {
+    max-height: 50px;
+  }
+  
+  header h1 {
+    color: var(--color-light);
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  nav ul li a {
+    color: var(--color-light);
+    font-weight: 500;
+    padding: 0.3rem 0.5rem;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .active {
+    text-decoration: underline;
+  }
+  
+  /* BANNER principal (background) */
+  .banner {
+    position: relative;
+    text-align: center;
+    padding: 4rem 1rem;
+    /* Imagen de fondo de madera */
+    background: url("../images/banner.jpg") no-repeat center center;
+    background-size: cover;
+    /* Color de texto oscuro */
+    color: #111111;
+  }
+  
+  .banner h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .banner .subtexto {
+    font-size: 1.1rem;
+  }
+  
+  /* SECCIÓN DESTACADAS */
+  .destacadas {
+    background-color: var(--color-secondary);
+    padding: 2rem 1rem;
+    max-width: 1200px;    /* Centra y limita ancho */
+    margin: 0 auto;
+    text-align: center;   /* Título y contenido centrado */
+  }
+  
+  .destacadas h2 {
+    color: var(--color-light);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Tarjetas (por defecto, 1 columna en móvil) */
+  .destacadas article {
+    background-color: var(--color-light);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .destacadas article img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .destacadas article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+  
+  /* A PARTIR de 768px -> 4 columnas fijas */
+  @media (min-width: 768px) {
+    .destacadas {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+      gap: 1rem;
+      text-align: left; /* Puedes dejarlo en center si prefieres */
+    }
+    
+    .destacadas article {
+      margin-bottom: 0; /* En grid no es necesario margin-bottom */
+    }
+  }
+  
+  /* SECCIÓN “VER MÁS” (Botón) */
+  .ver-mas {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .ver-mas .btn {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    min-height: 48px; /* accesibilidad */
+  }
+  
+  .ver-mas .btn:hover {
+    background-color: #e64a19;
+  }
+  
+  /* LISTA DE RECETAS (recetas.html) */
+  .lista-recetas {
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .lista-recetas h2 {
+    margin-bottom: 1rem;
+  }
+  
+  .lista-recetas p {
+    margin-bottom: 1.5rem;
+  }
+  
+  .lista-recetas article {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .lista-recetas article img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .lista-recetas article h3 {
+    margin: 0.5rem 1rem;
+  }
+  
+  .lista-recetas article p {
+    margin: 0.5rem 1rem;
+  }
+  
+  .lista-recetas article a {
+    margin: 0.5rem 1rem 1rem 1rem;
+    color: var(--color-primary);
+    font-weight: bold;
+    align-self: flex-start;
+  }
+  
+  .lista-recetas article:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  
+  /* SECCIÓN TIPS (tips.html) */
+  .tips {
+    padding: 2rem 1rem;
+    /* Gradiente (segundo background) */
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary) 0%,
+      var(--color-primary) 100%
+    );
+    color: var(--color-light);
+  }
+  
+  .tips h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .tips p {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .tips article {
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+  }
+  
+  /* SECCIÓN CONTACTO (contacto.html) */
+  .contacto {
+    padding: 2rem 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .contacto h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contacto p {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  form label {
+    font-weight: bold;
+  }
+  
+  form input,
+  form textarea {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  form button {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    min-height: 48px; /* accesibilidad */
+  }
+  
+  form button:hover {
+    background-color: #e64a19;
+  }
+  
+  /* FOOTER */
+  footer {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+  }
+  
+  /* Modo oscuro */
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .dark-mode header,
+  .dark-mode footer,
+  .dark-mode .destacadas,
+  .dark-mode .consultas,
+  .dark-mode .cambio-estilo {
+    background-color: #333333; /* un tono gris oscuro */
+    color: #ffffff;
+  }
+  
+  /* Ajusta según tu gusto. Por ejemplo: */
+  .dark-mode button {
+    background-color: #555555;
+    color: #ffffff;
+    border: 1px solid #888888;
+  }
+  
+  .dark-mode a {
+    color: #ffa500; /* naranja claro */
+  }
+  
+  .consultas {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+  }
+  
+  .consultas h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .consultas form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .consultas label {
+    font-weight: bold;
+  }
+  
+  .consultas input,
+  .consultas select,
+  .consultas textarea {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .consultas button {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+    padding: 0.8rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .consultas button:hover {
+    background-color: #e64a19;
+  }
+  
+  /* Modo oscuro aplicado a la sección .consultas también */
+  .dark-mode .consultas {
+    background-color: #333333;
+    color: #ffffff;
+  }
+  

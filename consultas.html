@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cocina Exprés - Consultas</title>
+
+  <!-- Google Fonts (opcional) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" 
+    rel="stylesheet" 
+  />
+  
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- HEADER (opcional, similar al resto de páginas) -->
+  <header>
+    <h1>Cocina Exprés</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="recetas.html">Recetas</a></li>
+        <li><a href="tips.html">Tips</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="consultas.html" class="active">Consultas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN PRINCIPAL -->
+  <section class="consultas">
+    <h2>Formulario de Consultas</h2>
+    <p>¿Tienes preguntas o comentarios? Envíanos tu consulta.</p>
+
+    <!-- FORMULARIO con mínimo 3 campos (uno desplegable) -->
+    <form id="formConsulta">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="Tu correo electrónico" />
+
+      <label for="tipo">Tipo de consulta:</label>
+      <select id="tipo" name="tipo">
+        <option value="">-- Selecciona --</option>
+        <option value="Receta">Receta</option>
+        <option value="Tip">Tip de Cocina</option>
+        <option value="Otro">Otro</option>
+      </select>
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu consulta"></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <!-- BOTÓN para cambiar el estilo (otro script) -->
+  <section class="cambio-estilo">
+    <button id="btnDarkMode">Activar modo oscuro</button>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>&copy; 2025 Cocina Exprés</p>
+  </footer>
+
+  <!-- Enlazamos al archivo JS externo -->
+  <script src="js/script.js"></script>
+</body>
+</html>
